@@ -13,9 +13,9 @@ def index(request):
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
             recepient = str(form['receiver'].value())
+           
             send_mail(subject, 
                 message, EMAIL_HOST_USER, [recepient], fail_silently = False)
-            
             return redirect('success')
             
     context = {}
